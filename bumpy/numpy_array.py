@@ -12,11 +12,16 @@ from .numpy_type_constant import (
 
 def _product(*sequences):
     if not sequences:
-        yield ()
+        return [()]
     else:
-        for item in sequences[0]:
-            for prod in _product(*sequences[1:]):
-                yield (item,) + prod
+        result = []
+        first, rest = sequences[0], sequences[1:]
+        rest_product = _product(*rest)
+        for item in first:
+            for prod in rest_product:
+                result.append((item,) + prod)
+        return result
+
 
 def _ndarray_parts_from_object(o):
     
