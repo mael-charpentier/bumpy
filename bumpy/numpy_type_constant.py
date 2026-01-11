@@ -1,3 +1,4 @@
+# https://numpy.org/doc/stable/reference/arrays.dtypes.html
 class DType:
     def __init__(self, name, cast):
         self.name = name
@@ -15,7 +16,6 @@ class DType:
     def __repr__(self):
         return f"{self.name}"
     
-# https://numpy.org/doc/stable/reference/arrays.dtypes.html
 class DValue:
     def __init__(self, value, dtype):
         self.value = dtype.cast(value)
@@ -120,7 +120,7 @@ class DValue:
     
 # https://numpy.org/doc/stable/reference/arrays.promotion.html
 def _dtype_promotion(dtype1, dtype2):
-    # Simple promotion rules for example
+    # Simple promotion rules
     if dtype1 == Inf or dtype2 == Inf:
         return Inf
     if dtype1 == Object or dtype2 == Object:
