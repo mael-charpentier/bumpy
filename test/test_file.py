@@ -73,7 +73,6 @@ for file_name in os.listdir(folder):
     if not file_path.endswith(".py"):
         continue
 
-    print(f"Testing {file_name}")
 
     printed = []
     out_np, globals_np = run_and_capture(file_path, numpy)
@@ -110,3 +109,4 @@ for file_name in os.listdir(folder):
             f"Variable {k} mismatch in {file_name}\n"
             f"numpy={vars_np[k]} bumpy={vars_bp[k]}"
         )
+    print(f"OK {file_name}")
